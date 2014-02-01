@@ -1,4 +1,4 @@
-#include <pebble.h>
+О╩©#include <pebble.h>
 
 #include "Blockslide-Date_2.0.h"
 
@@ -39,7 +39,7 @@ char weekDay[LANG_MAX][7][3] = {
 	{ "SU", "MO", "TU", "WE", "TH", "FR", "SA" },	// English
 	{ "DI", "LU", "MA", "ME", "JE", "VE", "SA" },	// French
 	{ "SO", "MO", "DI", "MI", "DO", "FR", "SA" },	// German
-	//{ "бя", "ом", "бр", "яп", "вр", "ор", "яа" }	// Russian
+	{ "п▓п║", "п÷п²", "п▓п╒", "п║п═", "п╖п╒", "п÷п╒", "п║п▒" }	// Russian
 };
 
 int curLang = LANG_ENGLISH;
