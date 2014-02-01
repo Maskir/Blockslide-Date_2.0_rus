@@ -39,7 +39,7 @@ char weekDay[LANG_MAX][7][3] = {
 	{ "SU", "MO", "TU", "WE", "TH", "FR", "SA" },	// English
 	{ "DI", "LU", "MA", "ME", "JE", "VE", "SA" },	// French
 	{ "SO", "MO", "DI", "MI", "DO", "FR", "SA" },	// German
-	{ "бя", "ом", "бр", "яп", "вр", "ор", "яа" }	// Russian
+	//{ "бя", "ом", "бр", "яп", "вр", "ор", "яа" }	// Russian
 };
 
 int curLang = LANG_ENGLISH;
