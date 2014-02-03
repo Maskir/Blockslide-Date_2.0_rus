@@ -39,12 +39,15 @@ Pebble.addEventListener("webviewclosed", function(e) {
 	var configuration = JSON.parse(e.response);
 	Pebble.sendAppMessage(configuration);
 	
-	dateorder = configuration["dateorder"];
+	//dateorder = configuration["dateorder"];
+	dateorder = configuration.dateorder;
 	localStorage.setItem("dateorder", dateorder);
 	
-	weekday = configuration["weekday"];
+	//weekday = configuration["weekday"];
+	weekday = configuration.weekday;
 	localStorage.setItem("weekday", weekday);
 
-	lang = configuration["lang"];
+	//lang = configuration["lang"];
+	lang = configuration.lang;
 	localStorage.setItem("lang", lang);
 });
