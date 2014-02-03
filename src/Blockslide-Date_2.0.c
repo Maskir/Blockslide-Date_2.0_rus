@@ -42,9 +42,9 @@ char weekDay[LANG_MAX][7][3] = {
 	{ "BC", "[H", "BT", "CP", "]T", "[T", "C^" }	// Russian где [=П, ]=Ч, ^=Б
 };
 
-int curLang = LANG_ENGLISH;
-int showWeekday = 0;
-int USDate = 1;
+int curLang = LANG_SPANISH;//LANG_ENGLISH;
+int showWeekday = 1;
+int USDate = 0;
 
 typedef struct {
 	Layer *layer;
