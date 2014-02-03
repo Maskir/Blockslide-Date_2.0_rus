@@ -27,7 +27,7 @@ enum {
 #define VSPACE 8
 #define DIGIT_CHANGE_ANIM_DURATION 800
 #define STARTDELAY 1000
-#define BATTERYDELAY 3000
+#define BATTERYDELAY 5000
 #define SCREENW 144
 #define SCREENH 168
 #define CX 72
@@ -65,11 +65,11 @@ int startDigit[NUMSLOTS] = {
 	SPACE_R,
 	SPACE_L,
 	'B'-'0',
-	'L'-'0',
-	'K'-'0',
 	'S'-'0',
-	'L'-'0',
 	'D'-'0',
+	'_'-'0',
+	'R'-'0',
+	'U'-'0',
 	SPACE_R
 };
 
