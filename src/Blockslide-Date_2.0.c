@@ -67,9 +67,9 @@ int startDigit[NUMSLOTS] = {
 	'B'-'0',
 	'S'-'0',
 	'D'-'0',
-	'_'-'0',
 	'R'-'0',
 	'U'-'0',
+	'S'-'0',
 	SPACE_R
 };
 
@@ -364,19 +364,19 @@ void readConfig() {
 	if (persist_exists(CONFIG_KEY_DATEORDER)) {
 		USDate = persist_read_int(CONFIG_KEY_DATEORDER);
 	} else {
-		USDate = 1;
+		USDate = 0;
 	}
 	
 	if (persist_exists(CONFIG_KEY_WEEKDAY)) {
 		showWeekday = persist_read_int(CONFIG_KEY_WEEKDAY);
 	} else {
-		showWeekday = 0;
+		showWeekday = 1;
 	}
 	
 	if (persist_exists(CONFIG_KEY_LANG)) {
 		curLang = persist_read_int(CONFIG_KEY_LANG);
 	} else {
-		curLang = LANG_ENGLISH;
+		curLang = LANG_SPANISH;
 	}
 }
 
