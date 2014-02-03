@@ -26,8 +26,8 @@ enum {
 #define DHSPACE 4
 #define VSPACE 8
 #define DIGIT_CHANGE_ANIM_DURATION 800
-#define STARTDELAY 1500
-#define BATTERYDELAY 5000
+#define STARTDELAY 1000
+#define BATTERYDELAY 3000
 #define SCREENW 144
 #define SCREENH 168
 #define CX 72
@@ -39,7 +39,7 @@ char weekDay[LANG_MAX][7][3] = {
 	{ "SU", "MO", "TU", "WE", "TH", "FR", "SA" },	// English
 	{ "DI", "LU", "MA", "ME", "JE", "VE", "SA" },	// French
 	{ "SO", "MO", "DI", "MI", "DO", "FR", "SA" },	// German
-	{ "ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ" }	// Russian
+	{ "BC", "[H", "BT", "CP", "]T", "[T", "C^" }	// Russian где [=П, ]=Ч, ^=Б
 };
 
 int curLang = LANG_ENGLISH;
