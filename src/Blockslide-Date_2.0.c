@@ -273,6 +273,7 @@ void handle_timer(void *data) {
 	struct tm *now;
 	
     splashEnded = true;
+	showBattery = false;
 	curTime = time(NULL);
 	now = localtime(&curTime);
     handle_tick(now, 0);
