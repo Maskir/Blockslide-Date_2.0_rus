@@ -285,7 +285,7 @@ void handle_tap(AccelAxisType axis, int32_t direction) {
     if (splashEnded) {
 	
 		if (showBattery) {
-			handle_timer();
+			handle_timer(NULL);
 		} else {
 			if (animation_is_scheduled(anim)) {
 				animation_unschedule(anim);
