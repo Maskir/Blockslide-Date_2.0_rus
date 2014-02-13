@@ -302,9 +302,9 @@ void handle_tap(AccelAxisType axis, int32_t direction) {
 		
 		s--;
 		
-		for (i=0; i<4; i++) {
-			slot[i].curDigit = BATTERYOFFSET + 4*s + i;
-		}
+		//for (i=0; i<4; i++) {
+		//	slot[i].curDigit = BATTERYOFFSET + 4*s + i;
+		//}
 		
 		slot[4].curDigit = 'B' - '0';
 		slot[5].curDigit = 'A' - '0';
