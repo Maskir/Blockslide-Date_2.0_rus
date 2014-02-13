@@ -283,41 +283,48 @@ void handle_tap(AccelAxisType axis, int32_t direction) {
 	int i, s;
 	
     if (splashEnded) {
-		if (animation_is_scheduled(anim)) {
-			animation_unschedule(anim);
+	
+		if (showBattery) {
+			handle_timer();
+		} else {
+			if (animation_is_scheduled(anim)) {
+				animation_unschedule(anim);
+			}
+			
+			for (i=0; i<NUMSLOTS; i++) {
+				slot[i].prevDigit = slot[i].curDigit;
+			}
+			
+			chargeState = battery_state_service_peek();
+			s = chargeState.charge_percent / 10;
+					
+			if (s<1) {
+				s = 1;
+			} else if (s>9) {
+				s = 9;
+			}
+			
+			s--;
+			
+			//for (i=0; i<4; i++) {
+			//	slot[i].curDigit = BATTERYOFFSET + 4*s + i;
+			//}
+			
+			slot[4].curDigit = 'B' - '0';
+			slot[5].curDigit = 'A' - '0';
+			slot[6].curDigit = 'T' - '0';
+			slot[7].curDigit = 'T' - '0';
+			slot[8].curDigit = SPACE_D;
+			slot[9].curDigit = s+1;
+			slot[10].curDigit = 0;
+			slot[11].curDigit = PERCENT;
+			
+			showBattery = true;
+			
+			animation_schedule(anim);
+			app_timer_register(BATTERYDELAY, handle_timer, NULL);
 		}
-		
-		for (i=0; i<NUMSLOTS; i++) {
-            slot[i].prevDigit = slot[i].curDigit;
-        }
-        
-        chargeState = battery_state_service_peek();
-        s = chargeState.charge_percent / 10;
-                
-        if (s<1) {
-			s = 1;
-		} else if (s>9) {
-			s = 9;
-		}
-		
-		s--;
-		
-		//for (i=0; i<4; i++) {
-		//	slot[i].curDigit = BATTERYOFFSET + 4*s + i;
-		//}
-		
-		slot[4].curDigit = 'B' - '0';
-		slot[5].curDigit = 'A' - '0';
-		slot[6].curDigit = 'T' - '0';
-		slot[7].curDigit = 'T' - '0';
-		slot[8].curDigit = SPACE_D;
-		slot[9].curDigit = s+1;
-		slot[10].curDigit = 0;
-		slot[11].curDigit = PERCENT;
-		
-        animation_schedule(anim);
-       	app_timer_register(BATTERYDELAY, handle_timer, NULL);
-	}
+	}	
 }
 
 void applyConfig() {
