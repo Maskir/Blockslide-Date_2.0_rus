@@ -272,6 +272,10 @@ void handle_timer(void *data) {
 	time_t curTime;
 	struct tm *now;
 	
+	if(data == 'battery' && !showBattery) {
+		return;
+	}
+	
     splashEnded = true;
 	showBattery = false;
 	curTime = time(NULL);
@@ -323,7 +327,7 @@ void handle_tap(AccelAxisType axis, int32_t direction) {
 			showBattery = true;
 			
 			animation_schedule(anim);
-			app_timer_register(BATTERYDELAY, handle_timer, NULL);
+			app_timer_register(BATTERYDELAY, handle_timer, 'battery');
 		}
 	}	
 }
