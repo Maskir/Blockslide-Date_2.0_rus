@@ -77,6 +77,8 @@ bool clock_12 = false;
 bool splashEnded = false;
 bool showBattery = false;
 
+AppTimer *timerBattery;
+
 AnimationImplementation animImpl;
 Animation *anim;
 
@@ -286,7 +288,7 @@ void handle_tap(AccelAxisType axis, int32_t direction) {
 	
 		if (showBattery) {
 			showBattery = false;
-			app_timer_cancel(handle_timer);
+			app_timer_cancel(timerBattery);
 			handle_timer(NULL);
 		} else {
 			if (animation_is_scheduled(anim)) {
@@ -324,7 +326,7 @@ void handle_tap(AccelAxisType axis, int32_t direction) {
 			showBattery = true;
 			
 			animation_schedule(anim);
-			app_timer_register(BATTERYDELAY, handle_timer, 'battery');
+			timerBattery = app_timer_register(BATTERYDELAY, handle_timer, NULL);
 		}
 	}	
 }
