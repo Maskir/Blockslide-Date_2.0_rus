@@ -84,6 +84,19 @@ Animation *anim;
 
 char buffer[256] = "";
 
+static void handle_bluetooth_connection(bool connected) {
+  
+	if (connected) {
+		vibes_long_pulse;
+	} else {
+		for (i = 0; i<6; i++) {
+			vibes_short_pulse;
+		};
+	};
+  
+}
+
+
 GRect slotFrame(int i) {
 	int x, y;
 	int w = slot[i].tileWidth*3;
@@ -431,6 +444,9 @@ void handle_init() {
 	tick_timer_service_subscribe(MINUTE_UNIT, handle_tick);
 	
 	accel_tap_service_subscribe(handle_tap);
+	
+	bluetooth_connection_service_subscribe(&handle_bluetooth_connection);
+	
 }
 
 void handle_deinit() {
