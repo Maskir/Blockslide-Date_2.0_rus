@@ -87,10 +87,10 @@ char buffer[256] = "";
 static void handle_bluetooth_connection(bool connected) {
   
 	if (connected) {
-		vibes_long_pulse;
+		vibes_long_pulse();
 	} else {
-		for (i = 0; i<6; i++) {
-			vibes_short_pulse;
+		for (int i = 0; i<6; i++) {
+			vibes_short_pulse();
 		};
 	};
   
